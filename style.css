@@ -70,6 +70,10 @@ main{
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.card:hover{
+    transform: scale(1.1);
+    transition: transform .5s;
+}
 .card h3{
     font-size: 25px;
 }
@@ -79,7 +83,9 @@ main{
     background-color: orange;
     border-radius: 5px;
     cursor: pointer;
-
+}
+.card button:hover{
+    outline: 2px solid #007bff;
 }
 
 /*Phone Screen*/
