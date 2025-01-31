@@ -1,12 +1,73 @@
-.cart-item {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+main{
+    display: flex;
+    flex-direction: column;
 }
 
-.total-price {
-    font-size: 20px;
+.cart {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 20px 40px 20px;
+}
+.cart h2{
+    font-size: 40px;
     font-weight: bold;
-    margin-top: 20px;
+}
+.cart-items{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cart-item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+}
+.cart-item h3{
+    font-size: 20px;
+}
+.quantity-control{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.buttonBox{
+    border: #b6b6b6 solid 1px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.quantity-control button{
+    font-size: 20px;
+    width: 50px;
+    border: #a8a8a8 solid 1px;
+    background-color: white;
+    border-radius: 10px;
+    color: #a8a8a8;
+}
+.quantity-control button:hover{
+    background-color: rgba(159, 159, 159, 0.15);
+    transition: background-color 0.5s ease;
+}
+.deleteItem{
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    background-color: rgba(255, 0, 0, 0.71);
+    font-size: 15px ;
+}
+.deleteItem:hover{
+    background-color: rgba(255, 0, 0, 0.85);
+}
+.total-price{
+    font-size: 30px;
+    border: #a8a8a8 solid 1px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 25%;
 }

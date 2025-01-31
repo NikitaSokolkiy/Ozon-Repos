@@ -54,7 +54,7 @@ header{
 main{
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
+    padding-top: 10px;
 }
 .gallery{
     display: grid;
