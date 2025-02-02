@@ -19,22 +19,26 @@ function renderCart (){
         item.classList.add('cart-item');
         item.dataset.itemId = itemID;
         item.innerHTML = `
-        <h3 class="item-name">${product.name}</h3>
-        <div class="quantity-control">
-            <p>Количество: ${product.quantity}</p>
-            <div class="buttonBox">
-                <button class="decrease">-</button>
-                <button class="increase">+</button>
+            <h3 class="item-name">${product.name}</h3>
+            <div class="quantity-control">
+                <p>Количество: ${product.quantity}</p>
+                <div class="buttonBox">
+                    <button class="decrease">-</button>
+                    <button class="increase">+</button>
+                </div>
             </div>
-        </div>
-        <p>Цена за шт.: ${product.price} ₽</p>
-        <p>Сумма: ${product.quantity * product.price} ₽</p>
-        <button class="deleteItem">Удалить</button>
+            <p>Цена за шт.: ${formatPrice(product.price)} ₽</p>
+            <p>Сумма: ${formatPrice(product.quantity * product.price)} ₽</p>
+            <button class="deleteItem">Удалить</button>
         `
         cartItems.appendChild(item)
     }
+
+    function formatPrice (price){
+        return price.toLocaleString('ru-RU');
+    }
     // Вывод общей суммы
-    document.querySelector('.total-price').textContent = `Общая сумма: ${totalPrice} ₽`;
+    document.querySelector('.total-price').textContent = `Общая сумма: ${formatPrice(totalPrice)} ₽`;
 
     // Увеличение кол-ва с обработкой нажатия
     document.querySelectorAll('.increase').forEach(button => {

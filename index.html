@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="reset.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    <title>Шапка Ozon</title>
+    <title>TigerShop</title>
 </head>
 <body>
     <header class="header">
         <div class="container">
            <img src="bars-solid.svg" alt="burger" class="burger">
-            <a href="#"><h1>Ozon</h1></a>
+            <a href="#"><h1>TigerShop</h1></a>
             <nav class="navbar">
                 <ul class="navbar-list">
                     <li class="navbar-item">Главная</li>
@@ -26,52 +26,91 @@
         </div>
     </header>
     <main>
-        <section class="gallery">
-            <div class="card" id="phone1">
-                <img src="phone.jpeg" alt="">
-                <h3>Смартфон 1</h3>
-                <p>Цена: 15 000 ₽</p>
-                <button class="add-to-cart">В корзину</button>
-            </div>
-            <div class="card" id="phone2">
-                <img src="phone.jpeg" alt="">
-                <h3 class="item-name">Смартфон 2 </h3>
-                <p class="item-price">Цена: 25 000 ₽</p>
-                <button class="add-to-cart">В корзину</button>
-            </div>
-            <div class="card" id="phone3">
-                <img src="phone.jpeg" alt="">
-                <h3>Смартфон 3</h3>
-                <p>Цена: 35 000 ₽</p>
-                <button class="add-to-cart">В корзину</button>
-            </div>
-            <div class="card" id="phone4">
-                <img src="phone.jpeg" alt="">
-                <h3>Смартфон 4</h3>
-                <p>Цена: 45 000 ₽</p>
-                <button class="add-to-cart">В корзину</button>
-            </div>
-            <div class="card" id="phone5">
-                <img src="phone.jpeg" alt="">
-                <h3>Смартфон 5</h3>
-                <p>Цена: 55 000 ₽</p>
-                <button class="add-to-cart">В корзину</button>
-            </div>
-            <div class="card" id="phone6">
-                <img src="phone.jpeg" alt="">
-                <h3>Смартфон 6</h3>
-                <p>Цена: 65 000 ₽</p>
-                <button class="add-to-cart">В корзину</button>
-            </div>
-            <div class="card" id="phone7">
-                <img src="phone.jpeg" alt="">
-                <h3>Смартфон 7</h3>
-                <p>Цена: 75 000 ₽</p>
-                <button class="add-to-cart">В корзину</button>
-            </div>
-        </section>
+        <div class="main-container">
+            <aside class="filter">
+                <ul class="category">
+                    <h3>Выбор категории</h3>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="electronics" name="category" value="electronics">
+                            Электроника
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="appliances" name="category" value="appliances">
+                            Бытовая техника
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="clothing" name="category" value="clothing">
+                            Одежда
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="books" name="category" value="books">
+                            Книги
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="furniture" name="category" value="furniture">
+                            Мебель
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="kitchenware" name="category" value="kitchenware">
+                            Кухонная утварь
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="cosmetics" name="category" value="cosmetics">
+                            Косметика
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="music" name="category" value="music">
+                            Музыкальные инструменты
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="fitness" name="category" value="fitness">
+                            Спортивные товары
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="toys" name="category" value="toys">
+                            Игрушки
+                        </label>
+                    </li>
+                </ul>
+                <div class="rangePrice">
+                    <h3>Цена: </h3>
+                    <div class="rangePrice-container">
+                        <div class="fromPrice">
+                            <p>От: </p>
+                            <input type="number" min="0" placeholder="0">
+                        </div>
+                        <div class="toPrice">
+                            <p>До: </p>
+                            <input type="number" min="10" placeholder="Max">
+                        </div></div>
+                </div>
+            </aside>
+            <section class="gallery"></section>
+        </div>
     </main>
     <footer></footer>
+<script src="dataItems.js"></script>
 <script src="index.js"></script>
+<script src="filter.js"></script>
+<script src="addToCart.js"></script>
 </body>
 </html>

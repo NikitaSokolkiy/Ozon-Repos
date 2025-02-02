@@ -1,4 +1,3 @@
-
 /*Обработка Бургера*/
 let burger = document.querySelector('.burger');
 let navbar = document.querySelector('.navbar');
@@ -24,46 +23,40 @@ window.addEventListener('resize', () => {
     }
 });
 
-/*Добавление в корзину и localStorage*/
-let cart = JSON.parse(localStorage.getItem('cart')) || {};
+// Рендеринг меню
+function renderMenu(){
+    for (const item of products){
+        const galleryMenu = document.querySelector('.gallery');
 
-// Добавление товара
-function addToCart(productID, name, price) {
-    if(cart[productID]){
-        cart[productID].quantity += 1;
-    } else {
-        cart[productID] = {quantity: 1,
-            name: name,
-            price: price
-        };
+        const cardItem = document.createElement('div');
+        cardItem.innerHTML = `
+            <div class="card" id=${item.id} category=${item.category}>
+                <img src=${item.image} alt="">
+                <div class="card-text">
+                    <h3>${item.name}</h3>
+                    <p>Цена: ${item.price} ₽</p>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+            </div>
+        `
+        galleryMenu.appendChild(cardItem);
     }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCounter();
 }
 
-console.log(cart)
-// Обновление счетчика
-function updateCartCounter(){
-    const totalItems = Object.values(cart).reduce((acc, item) => acc + item.quantity, 0);
-    document.querySelector('.cart-button').textContent = `Корзина (${totalItems})`;
-}
 
-// Обработка кнопки (В корзину)
-document.querySelectorAll('.add-to-cart').forEach((item) => {
-    item.addEventListener('click', (e)=>{
-        const card = e.target.closest('.card');
-        const productID = card.id
-        const name = card.querySelector('h3').textContent
-        const itemPrice = parseFloat(card.querySelector('p').textContent.replace(/[^0-9.,]/g, '').replace(',', '.'));
-        addToCart(productID, name, itemPrice);
-    });
-})
+/* Обновление товаров и корзины при загрузке страницы */
+window.onload = () => {
+    const savedState = JSON.parse(localStorage.getItem('checkboxState'));
+    if (savedState) {
+        checkbox.forEach(cb => {
+            cb.checked = savedState[cb.value] || false;
+        });
+    }
 
-
-window.onload = ()=>{
-    if(Object.keys(cart).length > 0){
+    if (products.length > 0) {
+        renderMenu();
         updateCartCounter();
-    } else {
-        document.querySelector('.cart-button').textContent = 'Корзина'
     }
-}
+
+    handleFilterChange();
+};

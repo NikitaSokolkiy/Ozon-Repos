@@ -1,3 +1,4 @@
+/*Общие стили */
 body, a{
     font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
@@ -10,6 +11,7 @@ h1{
     font-size: 50px;
     font-weight: bold;
 }
+/*Заголовок*/
 header{
     background: #ffffff;
     display: flex;
@@ -39,54 +41,129 @@ header{
 .container button{
     background: none;
     border: none;
-
     font-size: 18px;
 }
 .container button:hover{
     color: #007bff;
     transition: all 0.3s ease-in-out;
 }
-
 .container img{
     width: 30px;
     display: none;
 }
+/*Основное меню*/
 main{
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
 }
-.gallery{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 30px;
+.main-container{
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    gap: 5px;
 }
-.card{
+.filter{
+    display: flex;
+    flex-direction: column;
+    border: rgba(204, 204, 204, 0.59) solid 1px;
+    border-radius: 10px;
+    padding: 7px;
+    font-size: 13px;
+    gap: 15px;
+}
+.filter .category{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border-radius: 10px;
+}
+.filter .category h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+.rangePrice{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.rangePrice-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 15px;
+    font-weight: normal;
+}
+.fromPrice, .toPrice{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+}
+.rangePrice-container input{
+    height: 20px;
+    width: 60px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: #a8a8a8 solid 1px;
+    padding: 2px;
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    border: rgba(204, 204, 204, 0.59) solid 1px;
     padding: 10px;
+    border-radius: 10px;
+    flex-grow: 1;
+}
+.card{
+    display: flex;;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 360px;
+    width: 250px;
+    justify-content: space-between;
 }
 .card:hover{
     transform: scale(1.1);
-    transition: transform .5s;
+    transition: transform .7s;
 }
-.card h3{
-    font-size: 25px;
+.card-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 }
-.card button{
+.card-text h3{
+    font-size: 18px;
+}
+.card-text button{
     border: none;
     font-size: 14px;
     background-color: orange;
     border-radius: 5px;
     cursor: pointer;
 }
-.card button:hover{
+.card-text button:hover{
     outline: 2px solid #007bff;
 }
+
+
+
+
+
+
+
+
 
 /*Phone Screen*/
 
