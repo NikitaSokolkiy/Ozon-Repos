@@ -24,21 +24,28 @@ window.addEventListener('resize', () => {
 });
 
 // Рендеринг меню
-function renderMenu(){
-    for (const item of products){
-        const galleryMenu = document.querySelector('.gallery');
+function renderMenu(filteredProducts){
+    const galleryMenu = document.querySelector('.gallery');
+    galleryMenu.innerHTML = ''; // Очищаем галерею перед рендерингом
 
+    for (const item of filteredProducts) {
+        // Создаем элемент .card напрямую
         const cardItem = document.createElement('div');
+        cardItem.classList.add('card'); // Добавляем класс "card"
+        cardItem.setAttribute('id', item.id); // Устанавливаем id
+        cardItem.setAttribute('category', item.category); // Устанавливаем атрибут category
+
+        // Заполняем содержимое карточки
         cardItem.innerHTML = `
-            <div class="card" id=${item.id} category=${item.category}>
-                <img src=${item.image} alt="">
-                <div class="card-text">
-                    <h3>${item.name}</h3>
-                    <p>Цена: ${item.price} ₽</p>
-                    <button class="add-to-cart">В корзину</button>
-                </div>
+            <img src=${item.image} alt="${item.name}">
+            <div class="card-text">
+                <h3>${item.name}</h3>
+                <p>Цена: ${item.price} ₽</p>
+                <button class="add-to-cart">В корзину</button>
             </div>
-        `
+        `;
+
+        // Добавляем карточку в галерею
         galleryMenu.appendChild(cardItem);
     }
 }
@@ -46,17 +53,8 @@ function renderMenu(){
 
 /* Обновление товаров и корзины при загрузке страницы */
 window.onload = () => {
-    const savedState = JSON.parse(localStorage.getItem('checkboxState'));
-    if (savedState) {
-        checkbox.forEach(cb => {
-            cb.checked = savedState[cb.value] || false;
-        });
-    }
-
     if (products.length > 0) {
-        renderMenu();
+        renderMenu(products);
         updateCartCounter();
     }
-
-    handleFilterChange();
 };

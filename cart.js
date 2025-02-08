@@ -35,7 +35,7 @@ function renderCart (){
     }
 
     function formatPrice (price){
-        return price.toLocaleString('ru-RU');
+        return price.toLocaleString(`ru-RU`);
     }
     // Вывод общей суммы
     document.querySelector('.total-price').textContent = `Общая сумма: ${formatPrice(totalPrice)} ₽`;

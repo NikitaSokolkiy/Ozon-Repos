@@ -1,64 +1,55 @@
-//1
 /*Получение информации об фильтрах*/
-const checkbox = document.querySelectorAll('input[type="checkbox"]');
+function filteredProducts(products){
+    let activeCheckboxes = [];
+    let activePrice = { min: null, max: null };
 
-// Применение фильтров
-function categoryFilter(products) {
-    const selectedCategory = Array.from(checkbox)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
+    function checkboxes(){
+        const checkboxes = document.querySelectorAll('input[name="category"]');
+        checkboxes.forEach(checkbox=>{
+            checkbox.addEventListener('change', (e)=>{
+                if(activeCheckboxes.includes(e.target.value)){
+                    activeCheckboxes.splice(activeCheckboxes.indexOf(e.target.value), 1);
+                } else {
+                    activeCheckboxes.push(e.target.value);
+                }
+                console.log(activeCheckboxes);
+                filter()
+            })
+        })
+    }
 
-    const formPriceInput = document.querySelector('.fromPrice input');
-    const toPriceInput = document.querySelector('.toPrice input');
-    const minPrice = parseFloat(formPriceInput.value) || 0;
-    const maxPrice = parseFloat(toPriceInput.value) || Infinity;
+    function minMaxPrice(){
+        const minPrice = document.querySelector('input[name="priceMin"]');
+        const maxPrice = document.querySelector('input[name="priceMax"]');
 
-    return products.filter(product => {
-        const matchesCategory = selectedCategory.length === 0 || selectedCategory.includes(product.category);
-        const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
-        return matchesCategory && matchesPrice;
-    });
-}
+        minPrice.addEventListener('input', updatePriceRange);
+        maxPrice.addEventListener('input',updatePriceRange);
 
-function updateGallery(filteredProducts) {
-    const gallery = document.querySelector('.gallery');
-    if(!gallery) return;
-
-    gallery.innerHTML = '';
-    filteredProducts.forEach(product => {
-        const cardItem = document.createElement('div');
-        cardItem.innerHTML = `
-            <div class="card" id=${product.id} category=${product.category}>
-                <img src=${product.image} alt="">
-                <div class="card-text">
-                    <h3>${product.name}</h3>
-                    <p>Цена: ${product.price} ₽</p>
-                    <button class="add-to-cart">В корзину</button>
-                </div>
-            </div>
-        `;
-        gallery.appendChild(cardItem);
-    });
-}
-
-function handleFilterChange(){
-    const filteredProducts = categoryFilter(products);
-    updateGallery(filteredProducts);
-}
-
-checkbox.forEach((checkbox)=>{
-    checkbox.addEventListener('change', ()=>{
-        const checkboxState = {};
-        checkbox.forEach((cb)=>{
-            checkboxState[cb.value] = cb.checked;
+        function updatePriceRange(){
+            activePrice.min = minPrice.value ? parseInt(minPrice.value) : null;
+            activePrice.max = maxPrice.value ? parseInt(maxPrice.value) : null;
+            console.log(`Диапазон цен: ${activePrice.min} - ${activePrice.max}`);
+            filter()
+        }
+    }
+    function filter(){
+        const filtered = products.filter(item => {
+            return ((activeCheckboxes.length === 0 || activeCheckboxes.some(category => item.category.includes(category)))&&
+                (activePrice.min === null || item.price >= activePrice.min)&&
+                (activePrice.max === null || item.price <= activePrice.max)
+            );
         });
-        localStorage.setItem('checkboxState', JSON.stringify(checkboxState));
-        handleFilterChange();
-    });
-})
+        console.log(`Отфильтрованные продукты:`, filtered.map(item => {
+            console.log(`Название: ${item.name}, Категории: ${item.category}, Цена: ${item.price}`);
+        }));
+        renderMenu(filtered)
 
-const priceInput = document.querySelectorAll('.rangePrice-container input');
-priceInput.forEach(price => {
-    price.addEventListener('change', handleFilterChange);
-})
+    }
 
+
+    //Инициализация
+    checkboxes();
+    minMaxPrice();
+
+}
+filteredProducts(products);

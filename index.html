@@ -30,81 +30,32 @@
             <aside class="filter">
                 <ul class="category">
                     <h3>Выбор категории</h3>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="electronics" name="category" value="electronics">
-                            Электроника
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="appliances" name="category" value="appliances">
-                            Бытовая техника
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="clothing" name="category" value="clothing">
-                            Одежда
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="books" name="category" value="books">
-                            Книги
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="furniture" name="category" value="furniture">
-                            Мебель
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="kitchenware" name="category" value="kitchenware">
-                            Кухонная утварь
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="cosmetics" name="category" value="cosmetics">
-                            Косметика
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="music" name="category" value="music">
-                            Музыкальные инструменты
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="fitness" name="category" value="fitness">
-                            Спортивные товары
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" class="toys" name="category" value="toys">
-                            Игрушки
-                        </label>
-                    </li>
+                    <li><label><input type="checkbox" name="category" value="electronics">Электроника</label></li>
+                    <li><label><input type="checkbox"  name="category" value="appliances">Бытовая техника</label></li>
+                    <li><label><input type="checkbox"  name="category" value="clothing">Одежда</label></li>
+                    <li><label><input type="checkbox"  name="category" value="books">Книги</label></li>
+                    <li><label><input type="checkbox"  name="category" value="furniture">Мебель</label></li>
+                    <li><label><input type="checkbox"  name="category" value="kitchenware">Кухонная утварь</label></li>
+                    <li><label><input type="checkbox"  name="category" value="cosmetics">Косметика</label></li>
+                    <li><label><input type="checkbox"  name="category" value="music">Музыкальные инструменты</label></li>
+                    <li><label><input type="checkbox"  name="category" value="fitness">Спортивные товары</label></li>
+                    <li><label><input type="checkbox"  name="category" value="toys">Игрушки</label></li>
                 </ul>
                 <div class="rangePrice">
                     <h3>Цена: </h3>
                     <div class="rangePrice-container">
                         <div class="fromPrice">
                             <p>От: </p>
-                            <input type="number" min="0" placeholder="0">
+                            <input type="number" min="0" placeholder="Min" name="priceMin">
                         </div>
                         <div class="toPrice">
                             <p>До: </p>
-                            <input type="number" min="10" placeholder="Max">
-                        </div></div>
+                            <input type="number" min="10" placeholder="Max" name="priceMax">
+                        </div>
+                    </div>
                 </div>
             </aside>
-            <section class="gallery"></section>
+            <section class="gallery"><!--products items--></section>
         </div>
     </main>
     <footer></footer>
