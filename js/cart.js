@@ -1,9 +1,31 @@
+
 const cartItems = document.querySelector('.cart-items');
+
+function noItemsInCart(){
+    const mainCart = document.querySelector('.main-cart');
+    mainCart.innerHTML = '';
+
+    mainCart.innerHTML = `
+    <section class="cart-noItem">
+        <div class="container-noItemsCart">
+            <img src="../empty-cart.svg" alt="cart">
+            <p>В корзине ничего нет =(</p>                
+        </div>
+    </section>
+    `;
+}
+
+let cartData = Object.entries(cart);
+
+if (cartData <= 0 ){
+    noItemsInCart()
+}
 
 // рендер корзины
 function renderCart (){
     cartItems.innerHTML = '';
     let totalPrice = 0;
+
 
     for(const [itemID, data] of Object.entries(cart)){
         const product = {
@@ -19,18 +41,18 @@ function renderCart (){
         item.classList.add('cart-item');
         item.dataset.itemId = itemID;
         item.innerHTML = `
-            <h3 class="item-name">${product.name}</h3>
-            <div class="quantity-control">
-                <p>Количество: ${product.quantity}</p>
-                <div class="buttonBox">
-                    <button class="decrease">-</button>
-                    <button class="increase">+</button>
-                </div>
+        <h3 class="item-name">${product.name}</h3>
+        <div class="quantity-control">
+            <p>Количество: ${product.quantity}</p>
+            <div class="buttonBox">
+                <button class="decrease">-</button>
+                <button class="increase">+</button>
             </div>
-            <p>Цена за шт.: ${formatPrice(product.price)} ₽</p>
-            <p>Сумма: ${formatPrice(product.quantity * product.price)} ₽</p>
-            <button class="deleteItem">Удалить</button>
-        `
+        </div>
+        <p>Цена за шт.: ${formatPrice(product.price)} ₽</p>
+        <p>Сумма: ${formatPrice(product.quantity * product.price)} ₽</p>
+        <button class="deleteItem">Удалить</button>
+    `
         cartItems.appendChild(item)
     }
 
@@ -38,7 +60,11 @@ function renderCart (){
         return price.toLocaleString(`ru-RU`);
     }
     // Вывод общей суммы
-    document.querySelector('.total-price').textContent = `Общая сумма: ${formatPrice(totalPrice)} ₽`;
+    if (cartData <= 0){
+        return
+    } else {
+        document.querySelector('.total-price').textContent = `Общая сумма: ${formatPrice(totalPrice)} ₽`;
+    }
 
     // Увеличение кол-ва с обработкой нажатия
     document.querySelectorAll('.increase').forEach(button => {
@@ -88,6 +114,4 @@ function renderCart (){
     })
 }
 // Обработка (перерисовка) при загрузке страницы
-window.onload = ()=>{
-    renderCart();
-}
+renderCart();

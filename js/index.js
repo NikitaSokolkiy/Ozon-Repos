@@ -23,7 +23,8 @@ window.addEventListener('resize', () => {
     }
 });
 
-// Рендеринг меню
+
+/* Рендер меню  */
 function renderMenu(filteredProducts){
     const galleryMenu = document.querySelector('.gallery');
     galleryMenu.innerHTML = ''; // Очищаем галерею перед рендерингом
@@ -49,7 +50,16 @@ function renderMenu(filteredProducts){
         galleryMenu.appendChild(cardItem);
     }
 }
-
+// Обработка кнопки (В корзину)
+document.querySelector('.gallery').addEventListener('click', (e) => {
+    if(e.target.classList.contains('add-to-cart')) {
+        const card = e.target.closest('.card');
+        const productID = card.id
+        const name = card.querySelector('h3').textContent
+        const itemPrice = parseFloat(card.querySelector('p').textContent.replace(/[^0-9.,]/g, '').replace(',', '.'));
+        addToCart(productID, name, itemPrice);
+    }
+});
 
 /* Обновление товаров и корзины при загрузке страницы */
 window.onload = () => {

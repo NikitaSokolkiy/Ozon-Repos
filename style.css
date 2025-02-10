@@ -108,10 +108,35 @@ main{
 .rangePrice-container input{
     height: 20px;
     width: 60px;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 5px;
     border: #a8a8a8 solid 1px;
     padding: 2px;
+}
+.sorting{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sorting p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.sorting select{
+    width: 100%; /* Ширина */
+    height: 40px; /* Высота */
+    padding: 8px; /* Внутренние отступы */
+    font-size: 14px; /* Размер текста */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 5px; /* Скругление углов */
+    background-color: #f9f9f9; /* Цвет фона */
+    appearance: none; /* Убираем стандартный вид стрелки */
+    -webkit-appearance: none; /* Для Safari */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path fill="black" d="M0 0l5 6 5-6z"/></svg>'); /* Кастомная стрелка */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Позиция стрелки */
+    background-size: 10px; /* Размер стрелки */
+    cursor: pointer; /* Изменение курсора при наведении */
 }
 .gallery{
     display: grid;
@@ -147,11 +172,12 @@ main{
     font-size: 18px;
 }
 .card-text button{
-    border: none;
     font-size: 14px;
-    background-color: orange;
     border-radius: 5px;
+    background-color: white;
     cursor: pointer;
+    padding: 5px 0;
+    border: solid 1px rgba(204, 204, 204, 0.75);
 }
 .card-text button:hover{
     outline: 2px solid #007bff;

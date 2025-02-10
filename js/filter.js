@@ -1,4 +1,4 @@
-/*Получение информации об фильтрах*/
+/*Фильтр*/
 function filteredProducts(products){
     let activeCheckboxes = [];
     let activePrice = { min: null, max: null };
@@ -50,6 +50,31 @@ function filteredProducts(products){
     //Инициализация
     checkboxes();
     minMaxPrice();
+
+}
+/*Сортировка*/
+const optionSelect = document.querySelector('select');
+optionSelect.addEventListener('change', (e)=>{
+    const selectedValue = e.target.value;
+    console.log(selectedValue);
+    sortingProducts(products, selectedValue);
+})
+
+
+function sortingProducts(products, type){
+    products.sort((a, b) => {
+        if (type === 'price_asc'){
+            return parseFloat(a.price) - parseFloat(b.price)
+        } else if (type === 'price_desc'){
+            return parseFloat(b.price) - parseFloat(a.price)
+        } else if (type === 'name_asc'){
+            return a.name.localeCompare(b.name);
+        } else if (type === 'name_desc'){
+            return b.name.localeCompare(a.name);
+        }
+        return 0;
+    });
+    renderMenu(products);
 
 }
 filteredProducts(products);

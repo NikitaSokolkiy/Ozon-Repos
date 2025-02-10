@@ -26,11 +26,13 @@
         </div>
     </header>
     <main>
+        <!--<div class="search"><input type="text"></div>-->
         <div class="main-container">
             <aside class="filter">
                 <ul class="category">
                     <h3>Выбор категории</h3>
-                    <li><label><input type="checkbox" name="category" value="electronics">Электроника</label></li>
+
+                    <li><label><input type="checkbox"  name="category" value="electronics">Электроника</label></li>
                     <li><label><input type="checkbox"  name="category" value="appliances">Бытовая техника</label></li>
                     <li><label><input type="checkbox"  name="category" value="clothing">Одежда</label></li>
                     <li><label><input type="checkbox"  name="category" value="books">Книги</label></li>
@@ -54,14 +56,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="sorting">
+                    <p>Сортировать по:</p>
+                    <select id="sort">
+                        <option value="default">Сортировать (выбр.)</option>
+                        <option value="price_asc">Цена (по возрастанию)</option>
+                        <option value="price_desc">Цена (по убыванию)</option>
+                        <option value="name_asc">Название (А-Я)</option>
+                        <option value="name_desc">Название (Я-А)</option>
+                    </select>
+                </div>
             </aside>
             <section class="gallery"><!--products items--></section>
         </div>
     </main>
     <footer></footer>
-<script src="dataItems.js"></script>
-<script src="index.js"></script>
-<script src="filter.js"></script>
-<script src="addToCart.js"></script>
+    <script src="js/dataItems.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/addToCart.js"></script>
 </body>
 </html>
