@@ -12,26 +12,32 @@
 <body>
     <header class="header">
         <div class="container">
-           <img src="bars-solid.svg" alt="burger" class="burger">
-            <a href="#"><h1>TigerShop</h1></a>
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-item">Главная</li>
-                    <li class="navbar-item">Каталог</li>
-                    <li class="navbar-item">Акции</li>
-                    <li class="navbar-item">Контакты</li>
-                </ul>
-            </nav>
-            <button class="cart-button" onclick="location.href='cart.html'">Корзина</button>
+            <div class="up">
+                <img src="bars-solid.svg" alt="burger" class="burger">
+                <a href="#"><h1>TigerShop</h1></a>
+                <div class="search">
+                    <input type="text" class="searchInput" placeholder="Найти товар ...">
+                    <button class="search-btn">Поиск</button>
+                </div>
+                <button class="cart-button" onclick="location.href='cart.html'">Корзина</button>
+            </div>
+            <div class="down">
+                <nav class="navbar">
+                    <ul class="navbar-list">
+                        <li class="navbar-item">Главная</li>
+                        <li class="navbar-item">Каталог</li>
+                        <li class="navbar-item">Акции</li>
+                        <li class="navbar-item">Контакты</li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <main>
-        <!--<div class="search"><input type="text"></div>-->
         <div class="main-container">
             <aside class="filter">
                 <ul class="category">
                     <h3>Выбор категории</h3>
-
                     <li><label><input type="checkbox"  name="category" value="electronics">Электроника</label></li>
                     <li><label><input type="checkbox"  name="category" value="appliances">Бытовая техника</label></li>
                     <li><label><input type="checkbox"  name="category" value="clothing">Одежда</label></li>

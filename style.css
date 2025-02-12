@@ -20,16 +20,78 @@ header{
     box-shadow: 0 2px 4px rgba(0,0,0,0.1)
 }
 .container{
-    height: 80px;
+    height: 100%;
     width: 1100px;
     display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 10px;
+}
+.cart-button{
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+.cart-button:hover{
+    color: #007bff;
+    transition: all 0.3s ease-in-out;
+}
+.up{
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
+}
+.down{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.search{
+    background: #007bff;;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px;
+    gap: 5px;
+
+}
+.search input{
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    padding-left: 5px;
+    border: none;
+}
+
+.search-btn{
+    background: #007bff;;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+.search-btn:hover{
+    background: #4a59ca;
+}
+.navbar{
+    width: 100%;
 }
 .navbar-list{
     display: flex;
-    gap: 15px;
+    justify-content: space-around;
+}
+.navbar-item{
+    border: solid 2px #007bff;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 5px;
 }
 .container a{
     text-decoration: none;
@@ -38,19 +100,14 @@ header{
     color: #007bff;
     transition: all 0.3s ease-in-out;
 }
-.container button{
-    background: none;
-    border: none;
-    font-size: 18px;
-}
-.container button:hover{
-    color: #007bff;
-    transition: all 0.3s ease-in-out;
-}
 .container img{
     width: 30px;
     display: none;
 }
+
+
+
+
 /*Основное меню*/
 main{
     display: flex;
@@ -157,6 +214,7 @@ main{
     height: 360px;
     width: 250px;
     justify-content: space-between;
+    transition: transform 0.3s, opacity 0.3s;
 }
 .card:hover{
     transform: scale(1.1);
